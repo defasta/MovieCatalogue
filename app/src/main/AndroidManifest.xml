@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.moviecatalogue2">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <permission
+        android:name="com.example.moviecatalogue2.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.example.moviecatalogue2.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activites.SettingsActivity"></activity>
+
+        <receiver android:name=".widget.MovieFavoriteWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/movie_favorite_widget_info" />
+        </receiver>
+        <receiver
+            android:name=".notifications.MovieDailyReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".notifications.MovieReleaseReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <provider
+            android:authorities="com.example.moviecatalogue2"
+            android:name=".provider.MovieProvider"
+            android:exported="true"
+            android:readPermission="com.example.moviecatalogue2.READ_DATABASE"
+            android:writePermission="com.example.moviecatalogue2.WRITE_DATABASE" />
+
+        <service
+            android:name=".widget.MovieWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <activity
+            android:name=".activites.TvshowSearchActivity"
+            android:label="@string/search_tvshow" />
+        <activity
+            android:name=".activites.MovieSearchActivity"
+            android:label="@string/search" />
+        <activity android:name=".activites.TvshowFavoriteDetailActivity" />
+        <activity android:name=".activites.MovieFavoriteDetailActivity" />
+        <activity
+            android:name=".BottomNavigation"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity
+            android:name=".activites.TvshowDetailActivity"
+            android:label="@string/tvshow_detail" />
+        <activity
+            android:name=".activites.MovieDetailActivity"
+            android:label="@string/movie_detail" />
+        <activity android:name=".activites.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

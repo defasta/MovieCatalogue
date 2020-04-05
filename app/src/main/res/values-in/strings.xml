@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Katalog Film</string>
+    <string name="name_movies">Nama Film</string>
+    <string name="name_tvshows">Nama TV Show</string>
+    <string name="description_movies">Ini adalah deskripsi film</string>
+    <string name="description_tvshows">Ini adalah deskripsi TV Show</string>
+    <string name="title_year_movies">Tanggal Rilis</string>
+    <string name="title_year_tvshows">Tanggal Rilis</string>
+    <string name="year_movies">2018</string>
+    <string name="year_tvshows">2019</string>
+    <string name="title_score_movies">Penilaian Penonton</string>
+    <string name="title_score_tvshows">Penilaian Penonton</string>
+    <string name="score_movies">83%</string>
+    <string name="score_tvshows">90%</string>
+    <string name="title_description_movies">Sinopsis</string>
+    <string name="title_description_tvshows">Sinopsis</string>
+    <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_1">Film</string>
+    <string name="tab_text_2">Acara TV</string>
+    <string name="title_activity_bottom_navigation">Bottom Navigation</string>
+    <string name="title_movie">Film</string>
+    <string name="title_tvshow">Acara TV</string>
+    <string name="favorite">Favorit</string>
+    <string name="success_remove">Berhasil menghapus dari favorit</string>
+    <string name="failed_remove">Gagal menghapus dari favorit</string>
+    <string name="success_add">Berhasil menambah ke favorit</string>
+    <string name="failed_add">Gagal menambah ke favorit</string>
+    <string name="delete">Hapus dari favorit</string>
+    <string name="add">Tambah ke favorit</string>
+    <string name="no_favorite">Tidak ada favorit</string>
+</resources>

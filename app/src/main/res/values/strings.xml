@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="name_movies">Movie Name</string>
+    <string name="name_tvshows">Tv Show Name</string>
+    <string name="description_movies">Here is movie description</string>
+    <string name="description_tvshows">Here is tv show description</string>
+    <string name="title_year_movies">Release Date</string>
+    <string name="title_year_tvshows">Release Date</string>
+    <string name="year_movies">2018</string>
+    <string name="year_tvshows">2019</string>
+    <string name="title_score_movies">User Scores</string>
+    <string name="title_score_tvshows">User Scores</string>
+    <string name="score_movies">83%</string>
+    <string name="score_tvshows">90%</string>
+    <string name="title_description_movies">Overview</string>
+    <string name="title_description_tvshows">Overview</string>
+    <string name="change_language_settings">Change Languange Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_1">Movies</string>
+    <string name="tab_text_2">TV Shows</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_movie">Movie</string>
+    <string name="title_tvshow">Tv Show</string>
+    <string name="favorite">Favorite</string>
+    <string name="success_remove">Successed remove from favorite</string>
+    <string name="failed_remove">Failed remove from favorite</string>
+    <string name="success_add">Successed add to favorite</string>
+    <string name="failed_add">Failed add to favorite</string>
+    <string name="delete">Delete from favorite</string>
+    <string name="add">Add to favorite</string>
+    <string name="no_favorite">No favorite</string>
+    <string name="search">Search Movie</string>
+    <string name="search_movie_hint">Search movie</string>
+    <string name="movie_detail">Movie Detail</string>
+    <string name="tvshow_detail">Tv Show Detail</string>
+    <string name="search_tvshow">Search Tv Show</string>
+    <string name="appwidget_text">MOVIE CATALOGUE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="empty_text">empty</string>
+    <string name="daily_message">Hi! Movie Catologue is missing you!</string>
+    <string name="release_message">Hi! Movie Catalogue have a new movie today!</string>
+    <string name="daily_settings">Daily Reminder</string>
+    <string name="release_settings">Movie Release Reminder</string>
+</resources>

@@ -36,9 +36,8 @@ class MovieFavoriteFragment : Fragment() {
     private lateinit var adapter: MovieFavoriteAdapter
     //private lateinit var favoriteHelper: FavoriteHelper
     private var savedInstanceState :Bundle? = null
-    private var movie : Movie? = null
+    //private var movie : Movie? = null
     //private lateinit var uriWithId :Uri
-    private var contentResolver: ContentResolver? = null
 
     companion object{
         private const val EXTRA_STATE = "EXTRA_STATE"
@@ -57,7 +56,7 @@ class MovieFavoriteFragment : Fragment() {
         //favoriteHelper = FavoriteHelper.getInstance(activity!!.applicationContext)
         //favoriteHelper.open()
         //onResume()
-        movie = activity?.intent?.getParcelableExtra(MovieDetailActivity.EXTRA_MOVIE) as? Movie
+        //movie = activity?.intent?.getParcelableExtra(MovieDetailActivity.EXTRA_MOVIE) as? Movie
 
        // uriWithId = Uri.parse(CONTENT_URI.toString()+"/"+ movie?.id)
 
@@ -90,7 +89,7 @@ class MovieFavoriteFragment : Fragment() {
                 loadMoviesAsync()
             }
         }
-        contentResolver?.registerContentObserver(CONTENT_URI, true, myObserver)
+        activity?.contentResolver?.registerContentObserver(CONTENT_URI, true, myObserver)
     }
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -126,7 +125,7 @@ class MovieFavoriteFragment : Fragment() {
             //progressBar.visibility = View.VISIBLE
             val defferedMovies = async(Dispatchers.IO) {
                 //val cursor = favoriteHelper.queryAllMovie
-                val cursor = contentResolver?.query(CONTENT_URI, null, null, null, null)
+                val cursor = activity?.contentResolver?.query(CONTENT_URI, null, null, null, null)
                 MappingHelper.mapMovieCursorToArrayList(cursor)
             }
             //

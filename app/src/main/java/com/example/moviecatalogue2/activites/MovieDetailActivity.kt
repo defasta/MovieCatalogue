@@ -27,7 +27,6 @@ import java.util.Objects.requireNonNull
 class MovieDetailActivity : AppCompatActivity() , View.OnClickListener{
 
     private var position: Int = 0
-    private var cursor: Cursor? = null
     private lateinit var favoriteHelper: FavoriteHelper
     private lateinit var uriWithId: Uri
     private lateinit var movie: Movie
@@ -46,20 +45,18 @@ class MovieDetailActivity : AppCompatActivity() , View.OnClickListener{
         movie = intent.getParcelableExtra(EXTRA_MOVIE) as Movie
 
         uriWithId = Uri.parse(CONTENT_URI.toString()+"/"+movie.id )
-        cursor = contentResolver.query(CONTENT_URI, null, null, null, null)!!
 
 
-        if(checkMovie(cursor)){
+
+        if(checkMovie()){
             btn_movie.text = getString(R.string.delete)
-            if (cursor!=null){
+            /*if (cursor!=null){
                 movie = MappingHelper.mapMovieCursorToObject(cursor!!)
-            }
+            }*/
         }else{
             btn_movie.text = getString(R.string.add)
         }
 
-        //favoriteHelper = FavoriteHelper.getInstance(applicationContext)
-        //favoriteHelper.open()
 
         val url = "https://image.tmdb.org/t/p/w342/${movie.photo}"
         Glide.with(this)
@@ -85,8 +82,10 @@ class MovieDetailActivity : AppCompatActivity() , View.OnClickListener{
         btn_movie.setOnClickListener(this)
     }
 
-    private  fun checkMovie(cursor:Cursor?): Boolean{
+    private  fun checkMovie(): Boolean{
+
             var hasInserted = false
+            val cursor: Cursor = contentResolver.query(CONTENT_URI, null, null, null, null)!!
             if(cursor!=null){
                 if (cursor.moveToFirst()){
                     val id = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseContract.MovieColumns._ID))
@@ -122,7 +121,7 @@ class MovieDetailActivity : AppCompatActivity() , View.OnClickListener{
             values.put(DatabaseContract.MovieColumns.SCORE, score)
             values.put(DatabaseContract.MovieColumns.YEAR, year)
 
-            if (checkMovie(cursor)) {
+            if (checkMovie()) {
                 //val result = favoriteHelper.deleteMovieById(movie.id.toString()).toLong()
                 val result = contentResolver.delete(uriWithId, null, null).toLong()
                 if (result > 0) {
